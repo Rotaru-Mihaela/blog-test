@@ -1,0 +1,529 @@
+*	{ box-sizing: border-box;} /* [1] */
+html { font-size:  14px; } /* [2] */
+
+
+h2, h6,
+p,
+ul {
+  margin: 0; /* [3] */
+}
+
+
+h2, h6,
+p {
+  margin-bottom: 1.071rem; /* [4] */
+}
+
+
+a {
+  text-decoration: none;
+  cursor:      	pointer;
+}
+
+
+/*------------------------------------*\
+  #TIPOGRAFIE
+\*------------------------------------*/
+
+body {
+  font-family:  	'Montserrat', sans-serif;
+  color:        	#211138;
+  background-color: #f4f3f5;
+}
+
+
+h2 { font-size: 2.857rem; }
+
+
+h6,
+a {
+  font-size:  	.857rem;
+  font-weight:	bold;
+  text-transform: uppercase;
+  letter-spacing: .171rem;
+}
+/*------------------------------------*\
+  #BUTOANE
+\*------------------------------------*/
+
+.button {
+  display:        inline-block;
+  width:          11.429rem;
+  padding:        .928rem 0;
+  border:         2px solid;
+  border-radius:  1.786rem;
+  text-align:     center;
+}
+
+  .button--primary-hollow {
+    border-color:     #6200ea;
+    color:            #6200ea;
+    background-color: transparent;
+  }
+
+  .button--primary-hollow:visited { color: #6200ea; }
+
+  .button--secondary-solid {
+    border:           0;
+    color:            #6200ea;
+    background-color: #ffffff;
+  }
+
+  .button--secondary-solid:visited { color: #6200ea; }
+
+  .button--secondary-hollow {
+    border-color:     #ffffff;
+    color:            #ffffff;
+    background-color: transparent;
+  }
+
+  .button--secondary-hollow:visited { color: #ffffff; }
+
+
+
+
+
+/*------------------------------------*\
+  #HEADER
+\*------------------------------------*/
+
+/**
+ * 1. Aceste două seturi de reguli alcătuiesc CSS hack pe care putem
+ * centra conținutul header-ului. Poți citi mai multe despre această tehnică
+ * în capitolul Headers din modulul Componente uzuale.
+ *
+ * 2. Folosim acest right margin pentru ca logo-ul să apară în același loc
+ * la fel ca în prototipul de design.
+ */
+
+.header {
+  height:           80px;
+  background-color: #6200ea;
+}
+
+  .header__wrapper { /* [1] */
+    display:  table;
+    height:   100%;
+  }
+
+    .header__content { /* [1] */
+      display:        table-cell;
+      vertical-align: middle;
+    }
+
+      .header__subscribe,
+      .logo {
+        float: left;
+      }
+
+      .header__subscribe {
+        margin-right: 27.477%; /* [2] */
+      }
+
+
+
+
+
+/*------------------------------------*\
+  #NAVIGAȚIE
+\*------------------------------------*/
+
+/**
+ * 1. Este același truc pe care l-am folosit în cazul header-ului.
+ * Avem nevoie de aceste reguli pentru a putea centra conținutul.
+ *
+ * 2. Aliniem și navigația centrat orizontal.
+ *
+ * 3. Acest padding este necesar pentru a putea afișa
+ * bara mov a efectului hover în locul adecvat.
+ *
+ * 4. Înlăturăm marginea dreaptă inutilă de la ultimul link
+ * cu această regulă.
+ */
+
+.navigation {
+  height:           80px;
+  background-color: #ffffff;
+}
+
+  .navigation__wrapper { /* [1] */
+    display:  table;
+    height:   100%;
+  }
+
+    .navigation__link-container { /* [1] */
+      display:        table-cell;
+      height:         100%;
+      vertical-align: middle;
+      text-align:     center; /* [2] */
+    }
+
+      .navigation__link {
+        padding-bottom: 2.1rem; /* [3] */
+        margin-right:   5%;
+        color:          #211138;
+      }
+
+      a.navigation__link:last-child { margin-right: 0; } /* [4] */
+
+      .navigation__link:visited { color: #211138; }
+
+      .navigation__link:hover {
+        border-bottom:  solid;
+        border-color:   #6200ea;
+        color:          #6200ea;
+      }
+
+
+
+
+
+/*------------------------------------*\
+  #POSTARE
+\*------------------------------------*/
+
+/**
+ * 1. Avem nevoie de această declarație display: block; pentru că altfel,
+ * va exista un spațiu gol de câțiva pixeli între imagine
+ * și restul conținutului. Asta din cauză că img tag este
+ * un inline element special implicit, afectat de proprietatea linie-înălțime.
+ * Pentru a evita asta, mai bine setezi ca imaginea să fie un element  block.
+ */
+
+.post {
+  border-radius:    1.071rem;
+  background-color: #ffffff;
+  padding:          4.286rem 4.286rem 3.751rem 4.286rem;
+}
+
+  .post__metadata { color: #b2acba; }
+
+  .post__lede { font-size: 1.429rem; }
+
+  .post__image {
+    display:       block; /* [1] */
+    width:         100%;
+    height:        320px;
+    object-fit:    cover;
+    border-radius: 1.071rem 1.071rem 0 0;
+  }
+
+.post--w-cover { border-radius: 0 0 1.071rem 1.071rem; }
+
+.post--featured {
+  color:            #ffffff;
+  background-image: url('../assets/blog_posts/roberto-nickson-5ui0tfMC5ts-unsplash.jpg');
+  background-size:  cover;
+}
+
+
+
+
+
+/*------------------------------------*\
+  #CATEGORIA CARD
+\*------------------------------------*/
+
+/**
+ * 1. Cu ajutorul property, putem afișa toate imaginile în cadre,
+ * pătrate, frumoase, fără a le comprima,
+ * indiferent de proporțiile lor originale.
+ *
+ * 2. Toate p tag-urile au o margine inferioară implicită care se va adăuga
+ * padding-urilor cardurilor, astfel că padding-urile sus și jos
+ * nu vor avea aceeași dimensiune. Această regulă face ca dimensiunea
+ * marginilor cardului să fie zero, rezolvând problema.
+ *
+ * 3. Acest modifier face ca această componentă să apară
+ * în mod corect în sidebar.
+ */
+
+.category-card {
+  padding:          1.429rem;
+  border-radius:    1.071rem;
+  background-color: #ffffff;
+}
+
+  .category-card__image {
+    float:          left;
+    width:          8.571rem;
+    height:         8.571rem;
+    margin-right:   1.429rem;
+    border-radius:  .714rem;
+    object-fit:     cover; /* [1] */
+  }
+
+  .category-card__name { color: #6200ea; }
+
+  .category-card__text { margin-bottom: 0; } /* [2] */
+
+.category-card--nested { border-radius: 0; } /* [3] */
+
+
+
+
+
+/*------------------------------------*\
+  #SIDEBAR
+\*------------------------------------*/
+
+.sidebar-element { border-radius: 1.071rem; }
+
+  .sidebar-element__header {
+    padding:          1.643rem 0 1.571rem 0;
+    border-radius:    1.071rem 1.071rem 0 0;
+    text-align:       center;
+    color:            #ffffff;
+    background-color: #6200ea;
+  }
+
+    .sidebar-element__title { margin-bottom: 0; }
+
+  .sidebar-element__call-to-action {
+    padding:          1.571rem 0 1.643rem 0;
+    border-top:       .071rem solid;
+    border-radius:    0 0 1.071rem 1.071rem;
+    border-color:     #f4f3f5;
+    text-align:       center;
+    background-color: #ffffff;
+  }
+
+    .sidebar-element__cta-link         { color: #b2acba; }
+    .sidebar-element__cta-link:visited { color: #b2acba; }
+
+  .sidebar-element__list {
+    list-style-type:  none;
+    padding:          0;
+  }
+
+    .sidebar-element__list-item {
+      padding:          1.214rem 2.143rem 1.286rem 2.143rem;
+      border-bottom:    1px solid;
+      border-color:     #f4f3f5;
+      background-color: #ffffff;
+    }
+
+    .sidebar-element__list:last-child { border-bottom: 0; }
+
+      .sidebar-element__category-link         { color: #211138; }
+      .sidebar-element__category-link:visited { color: #211138; }
+
+
+
+/*------------------------------------*\
+  #FOOTER
+\*------------------------------------*/
+
+.footer {
+  height:           100px;
+  padding:          3.071rem 0 3rem 0;
+  text-align:       center;
+  background-color: #211138;
+}
+
+  .footer__copyright {
+    text-transform: uppercase;
+    font-size:      .857rem;
+    font-weight:    bold;
+    letter-spacing: .171rem;
+    color:          #b2acba;
+  }
+
+  .footer__brand-name,
+  .footer__student-name {
+    color: #6200ea;
+  }
+.layout__item--full-width           	{ width: 100%; }
+
+ .layout__item--70-percent           	{ width: 70%; }
+ 
+ .layout__item--66-percent-w-gutter  	{ width: calc(66.6% - 1.071rem); } /* [1] */
+ 
+ .layout__item--50-percent-w-gutter  	{ width: calc(50%   - 1.071rem); } /* [1] */
+ 
+ .layout__item--33-percent-w-gutter  	{ width: calc(33.3% - 1.071rem); } /* [1] */
+ 
+ 
+ .layout__item--content-w-sticked-footer { min-height: calc(100vh - 80px); }
+ 
+ 
+ .layout__item--centered-horizontally { /* [2] */
+   margin-left:  auto;
+   margin-right: auto;
+ }
+ 
+ 
+ .layout__item--floated-left  { float: left; } /* [3] */
+ .layout__item--floated-right { float: right; }/* [3] */
+ 
+ 
+ 
+ 
+ 
+ /*------------------------------------*\
+   #CULOARE
+ \*------------------------------------*/
+ 
+ .gutter--horizontal-small { margin-bottom: 2.142rem; }
+ 
+ .gutter--horizontal-big   { margin-bottom: 2.857rem; }
+ 
+ 
+ 
+ 
+ 
+ /*------------------------------------*\
+   #HELPERI
+ \*------------------------------------*/
+ 
+ .clearfix:after {
+   content:  "";
+   display:  table;
+   clear:	both;
+ }
+/*! normalize.css v3.0.2 | MIT License | git.io/normalize */
+html {
+	font-family:sans-serif;
+	text-size-adjust:100%;
+	text-size-adjust:100%;
+}
+body {
+	margin:0;
+}
+article,aside,details,figcaption,figure,footer,header,hgroup,main,menu,nav,section,summary {
+	display:block;
+}
+audio,canvas,progress,video {
+	display:inline-block;
+	vertical-align:baseline;
+}
+audio:not([controls]){
+	display:none;
+	height:0;
+}
+[hidden],template{
+	display:none;
+}
+a {
+	background-color:transparent;
+}
+a:active,a:hover {
+	outline:0;
+}
+abbr[title]{
+	border-bottom:1px dotted;
+}
+b,strong {
+	font-weight:700;
+}
+dfn {
+	font-style:italic;
+}
+h1 {
+	font-size:2em;
+	margin:.67em 0;
+}
+mark {
+	background:#ff0;
+	color:#000;
+}
+small{
+	font-size:80%;
+}
+sub,sup {
+	font-size:75%;
+	line-height:0;
+	position:relative;
+	vertical-align:baseline;
+}
+sup{
+	top:-.5em;
+}
+sub{
+	bottom:-.25em;
+}
+img{
+	border:0;
+}
+svg:not(:root){
+	overflow:hidden;
+}
+figure{
+	margin:1em 40px;
+}
+hr{
+	box-sizing:content-box;
+	box-sizing:content-box;
+	height:0;
+}
+pre{
+	overflow:auto;
+}
+code,kbd,pre,samp{
+	font-family:monospace,monospace;
+	font-size:1em;
+}
+button,input,optgroup,select,textarea{
+	color:inherit;
+	font:inherit;
+	margin:0;
+}
+button{
+	overflow:visible;
+}
+button,select{
+	text-transform:none;
+}
+button,html input[type=button],input[type=reset],input[type=submit]{
+	appearance:button;
+	cursor:pointer;
+}
+button[disabled],html input[disabled]{
+	cursor:default;
+}
+button::focus-inner,input::focus-inner{
+	border:0;
+	padding:0;
+}
+input{
+	line-height:normal;
+}
+input[type=checkbox],input[type=radio]{
+	box-sizing:border-box;padding:0;
+}
+input[type=number]::inner-spin-button,input[type=number]::outer-spin-button{
+	height:auto;
+}
+input[type=search]{
+	appearance:textfield;
+	box-sizing:content-box;
+	box-sizing:content-box;
+	box-sizing:content-box;
+}
+input[type=search]::search-cancel-button,input[type=search]::decoration{
+	appearance:none;
+	}
+	fieldset{
+		border:1px solid silver;
+		margin:0 2px;
+		padding:.35em .625em .75em;
+	}
+	legend{
+		border:0;
+		padding:0;
+}
+textarea{
+	overflow:auto;
+}
+optgroup{
+	font-weight:700;
+}
+table{
+	border-collapse:collapse;
+	border-spacing:0;
+
+}
+td,th{
+	padding:0;
+}
+
